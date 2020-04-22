@@ -20,8 +20,8 @@ fn get_min(arr: &mut Vec<usize>) -> usize {
 }
 
 fn sort(arr: &mut Vec<usize>) {
-    let mut min: usize = get_min(arr);
-    let mut max: usize  = get_max(arr);
+    let min: usize = get_min(arr);
+    let max: usize  = get_max(arr);
     let mut z = 0;
 
     let mut count = vec![0; max - min +1];
@@ -37,33 +37,14 @@ fn sort(arr: &mut Vec<usize>) {
             count[i - min] = count[i - min] - 1;
         }
     }
-
-    let i = 0;
 }
 
-/*
-function countingSort(array, min, max):
-    count: array of (max - min + 1) elements
-    initialize count with 0
-    for each number in array do
-        count[number - min] := count[number - min] + 1
-    done
-    z := 0
-    for i from min to max do
-        while ( count[i - min] > 0 ) do
-            array[z] := i
-            z := z+1
-            count[i - min] := count[i - min] - 1
-        done
-    done
- */
-
 fn main() {
-    let mut array = vec![5, 2, 4, 6, 1, 3];
-    let sum = 1;
+    let mut array = vec![20, 9, 5, 2, 4, 6, 1, 3, 400, 50];
 
-    let sum2: usize = array[0];
+    println!("Original Array: {:?}", array);
 
     sort(&mut array);
-    println!("{}", array[0]);
+
+    println!("Sorted Array: {:?}", array);
 }
